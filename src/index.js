@@ -1,4 +1,4 @@
 import './module'
-import './scss/style.scss'
+import './scss/index.scss'
 console.log('Modulsada')
 console.log('Not working at')
