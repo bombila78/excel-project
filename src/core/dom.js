@@ -37,6 +37,32 @@ class Dom {
         }
         return this
     }
+
+    closest(selector) {
+        return $(this.$el.closest(selector))
+    }
+
+    getCoords() {
+        return this.$el.getBoundingClientRect()
+    }
+
+    css(styles = {}) {
+        for (const [key, value] of Object.entries(styles)) {
+            this.$el.style[key] = value
+        }
+        return this
+    }
+
+    getData(attr) {
+        if (!attr) {
+            return this.$el.dataset
+        }
+        return this.$el.dataset[attr]
+    }
+
+    findAll(selector) {
+        return this.$el.querySelectorAll(selector)
+    }
 }
 
 export function $(selector) {
