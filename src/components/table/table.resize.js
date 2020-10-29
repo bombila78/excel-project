@@ -49,5 +49,6 @@ export function resizeHandler($root, event) {
             right: 0
         })
         document.onmousemove = null
+        document.onmouseup = null
     }
 }
