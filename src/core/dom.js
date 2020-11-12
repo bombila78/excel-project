@@ -14,7 +14,7 @@ class Dom {
     }
 
     text(text) {
-        if (typeof text === 'string') {
+        if (typeof text !== 'undefined') {
             this.$el.textContent = text
             return this
         }
@@ -64,11 +64,37 @@ class Dom {
         return this
     }
 
+    getStyles(styles = []) {
+        return styles.reduce((acc, el) => {
+            acc[el] = this.$el.style[el]
+            return acc
+        }, {})
+    }
+
     getData(attr) {
         if (!attr) {
             return this.$el.dataset
         }
         return this.$el.dataset[attr]
+    }
+
+    attr(key, value) {
+        if (typeof value !== 'undefined') {
+            this.$el.setAttribute(key, value)
+            return this
+        }
+        return this.$el.getAttribute(key)
+    }
+
+    id(parse) {
+        if (parse) {
+            const parsed = this.id().split(':')
+            return {
+                row: +parsed[0],
+                col: +parsed[1]
+            }
+        }
+        return this.getData('id')
     }
 
     find(selector) {
