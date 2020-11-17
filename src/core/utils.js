@@ -50,3 +50,11 @@ export function debounce(fn, latency) {
         timeout = setTimeout(later, latency)
     }
 }
+
+export function clone(object) {
+    return JSON.parse(JSON.stringify(object))
+}
+
+export function preventDefault(event) {
+    event.preventDefault()
+}
