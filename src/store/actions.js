@@ -3,7 +3,8 @@ import {
     CHANGE_STYLES,
     CHANGE_TEXT,
     CHANGE_TITLE,
-    TABLE_RESIZE
+    TABLE_RESIZE,
+    UPDATE_LAST_OPENED
 } from '@/store/types';
 
 export function tableResize(data) {
@@ -38,5 +39,11 @@ export function changeTitle(data) {
     return {
         type: CHANGE_TITLE,
         data
+    }
+}
+
+export function updateLastOpened() {
+    return {
+        type: UPDATE_LAST_OPENED
     }
 }
